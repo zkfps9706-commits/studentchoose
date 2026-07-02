@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학급별 학생 선택 내역 정리</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>학급별 학생 선택 내역 정리</h1>
+    <p class="subtitle">엑셀 파일(들)이 담긴 폴더를 업로드하면 학번을 기준으로 학급별 선택 내역을 정리해 보여줍니다.</p>
+  </header>
+
+  <main>
+    <section class="upload-panel" id="uploadPanel">
+      <div class="upload-row">
+        <label class="file-btn">
+          폴더 선택
+          <input type="file" id="folderInput" webkitdirectory multiple hidden>
+        </label>
+        <label class="file-btn secondary">
+          파일 선택
+          <input type="file" id="filesInput" accept=".xlsx,.xls" multiple hidden>
+        </label>
+        <span id="selectedInfo" class="selected-info"></span>
+      </div>
+      <p class="hint">엑셀 파일의 <code>data</code> 시트에서 <code>학번 / 이름 / 수업</code> 컬럼을 읽어 학번 앞 3자리(학년+반)로 학급을 자동 분류합니다.</p>
+    </section>
+
+    <section id="statusPanel" class="status-panel" hidden></section>
+
+    <nav id="classNav" class="class-nav" hidden></nav>
+
+    <section id="summaryPanel" class="summary-panel" hidden></section>
+
+    <section id="resultPanel" class="result-panel"></section>
+
+    <section id="unclassifiedPanel" class="unclassified-panel" hidden></section>
+  </main>
+
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
